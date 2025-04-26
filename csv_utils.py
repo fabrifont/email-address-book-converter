@@ -21,7 +21,7 @@ column_mapping = {
     'First Name': ['Primer nombre', 'Nombre'],
     'Last Name': ['Apellido', 'Apellidos'],
     'Nickname': ['Apodo'],
-    'Display Name': ['Nombre mostrado', 'Nombre en pantalla'],
+    #'Display Name': ['NO Nombre mostrado', 'Nombre en pantalla'],
     'E-mail Address': ['Dirección de correo electrónico principal'],
     'E-mail 2 Address': ['Dirección de correo electrónico secundaria'],
     'Business Phone': ['Teléfono (Trabajo)'],
@@ -49,10 +49,16 @@ column_mapping = {
 num_of_columns = df.shape[1]
 
 for column in df.columns:
+     found = 0
      for new_title in column_mapping:
           if(column in column_mapping[new_title]):
                df.rename(columns={column:new_title}, inplace=True)
+               found = 1
                break
+     if(not found):
+          df = df.drop(column, axis=1)
+
+
 
 
 df.to_csv(new_filename, index=False)
