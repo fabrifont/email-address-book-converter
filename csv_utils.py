@@ -6,13 +6,13 @@ column_mapping = {
      'Last Name': ['Apellido', 'Apellidos'],
      'Nickname': ['Apodo'],
      #'Display Name': ['NO Nombre mostrado', 'Nombre en pantalla'],
-     'E-mail Address': ['Dirección de correo electrónico principal'],
-     'E-mail 2 Address': ['Dirección de correo electrónico secundaria'],
-     'Business Phone': ['Teléfono (Trabajo)'],
-     'Home Phone': ['Teléfono particular'],
+     'E-mail Address': ['Dirección de correo electrónico principal', 'DirecciÃ³n de correo electrÃ³nico principal'],
+     'E-mail 2 Address': ['Dirección de correo electrónico secundaria', 'DirecciÃ³n de correo electrÃ³nico secundaria'],
+     'Business Phone': ['Teléfono (Trabajo)', 'TelÃ©fono (Trabajo)'],
+     'Home Phone': ['Teléfono particular', 'TelÃ©fono particular'],
      'Business Fax': ['Fax'],
      'Pager': ['Buscapersonas'],
-     'Mobile Phone': ['Teléfono móvil'],
+     'Mobile Phone': ['Teléfono móvil', 'TelÃ©fono mÃ³vil'],
      'Home Street': ['Dirección personal'],
      'Home City': ['Ciudad donde vive'],
      'Home State': ['Provincia'],
@@ -45,7 +45,6 @@ def convert_csv_utf8(file):
 
 def format_csv(file):
      df = pd.read_csv(file)
-     new_filename = file.replace(".csv", "") + "_CONVERTED.csv"
      for column in df.columns:
           found = 0
           for new_title in column_mapping:
