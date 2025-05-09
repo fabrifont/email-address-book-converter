@@ -1,4 +1,4 @@
-# td-to-ol-contact-converter
+# email-addresslist-converter
 
 CLI tool for converting .csv address lists from other email clients to Outlook.
 
